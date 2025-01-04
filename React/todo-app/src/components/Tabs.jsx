@@ -8,19 +8,18 @@ export function Tabs(props) {
 
             {tabs.map((tab, tabIndex) => {
                 const numOfTasks = tab === 'All' ?
-                todos.length :
-                tab === 'Open' ?
-                    todos.filter(val => !val.complete).
-                    length : 
+                    todos.length :
+                    tab === 'Open' ?
+                        todos.filter(val => !val.complete).length :
                         todos.filter(val => val.complete).length
-                    
-                return  (
+
+                return (
                     <button onClick={() => {
                         setSelectedTab(tab)
-                    }}  key={tabIndex}
-                    className={"tab-buttons " + (tab == selectedTab ? ' tab-selected' : ' ')}>
+                    }} key={tabIndex}
+                        className={"tab-buttons " + (tab == selectedTab ? ' tab-selected' : ' ')}>
                         <h4>
-                            {tab} 
+                            {tab}
                             <span> ({numOfTasks})</span>
                         </h4>
                     </button>
