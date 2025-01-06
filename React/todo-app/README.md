@@ -1,3 +1,3 @@
 # Cool To-do App
 
-![alt text](/public/todo.png)
+![todo](https://github.com/user-attachments/assets/dd24de4f-e161-4558-8de0-9be205a04cdc)
