@@ -41,12 +41,21 @@ function App() {
       return valIndex !== index
     })
 
-    setTodos(newTodoList);;
+    setTodos(newTodoList);
     handleSaveData(newTodoList);
   }
 
   function handleSaveData(currentTodos) {
     localStorage.setItem('todo-app', JSON.stringify({ todos : currentTodos }))
+  }
+
+  function handleEditTodo(index, details){
+    let newTodoList = [...todos]
+    let editedTodo = todos[index]
+    editedTodo['input'] = details
+    newTodoList[index] = editedTodo
+    setTodos(newTodoList);
+    handleSaveData(newTodoList);
   }
 
   useEffect(() => {
@@ -67,7 +76,8 @@ function App() {
         todos={todos}
         selectedTab={selectedTab}
         handleCompleteTodo={handleCompleteTodo}
-        handleDeleteTodo={handleDeleteTodo} />
+        handleDeleteTodo={handleDeleteTodo}
+        handleEditTodo={handleEditTodo} />
       <TodoInput handleAddTodo={handleAddTodo} />
     </>
   )
